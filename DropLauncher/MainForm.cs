@@ -135,5 +135,37 @@ namespace DropLauncher
         {
             // TODO Add code
         }
+
+        /// <summary>
+        /// Handles the main form drag enter event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnMainFormDragEnter(object sender, DragEventArgs e)
+        {
+            // Check for possible link
+            {
+                if (e.Data.GetDataPresent(DataFormats.Text) || e.Data.GetDataPresent("UniformResourceLocator"))
+                {
+                    // Set link effect
+                    e.Effect = DragDropEffects.Link;
+                }
+                else
+                {
+                    // No effect
+                    e.Effect = DragDropEffects.None;
+                }
+            }
+        }
+
+        /// <summary>
+        /// handles the main form drag drop event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnMainFormDragDrop(object sender, DragEventArgs e)
+        {
+            // TODO Add code
+        }
     }
 }
