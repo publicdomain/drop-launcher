@@ -96,7 +96,8 @@ namespace DropLauncher
         /// <param name="e">Event arguments.</param>
         private void OnOriginalThreadDonationCodercomToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // IDEA Drop Zone javascript link extractor and launcher
+            Process.Start("https://www.donationcoder.com/forum/index.php?topic=51227.0");
         }
 
         /// <summary>
