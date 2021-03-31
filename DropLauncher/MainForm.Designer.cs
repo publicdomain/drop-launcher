@@ -61,6 +61,8 @@ namespace DropLauncher
         	this.mainToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
         	this.countToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
         	this.mainPictureBox = new System.Windows.Forms.PictureBox();
+        	this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+        	this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
         	this.mainMenuStrip.SuspendLayout();
         	this.mainStatusStrip.SuspendLayout();
         	((System.ComponentModel.ISupportInitialize)(this.mainPictureBox)).BeginInit();
@@ -294,6 +296,8 @@ namespace DropLauncher
         	this.ResumeLayout(false);
         	this.PerformLayout();
         }
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ToolStripMenuItem rememberLocationToolStripMenuItem;
         private System.Windows.Forms.PictureBox mainPictureBox;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
