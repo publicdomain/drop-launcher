@@ -8,6 +8,7 @@ namespace DropLauncher
     // Directoves
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Drawing;
     using System.Windows.Forms;
     using PublicDomain;
@@ -84,7 +85,8 @@ namespace DropLauncher
         /// <param name="e">Event arguments.</param>
         private void OnMoreReleasesPublicDomainGiftcomToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Open current website
+            Process.Start("https://publicdomaingift.com");
         }
 
         /// <summary>
