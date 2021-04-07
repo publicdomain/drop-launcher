@@ -49,8 +49,8 @@ namespace DropLauncher
         	this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.alwaysOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.rememberLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.regedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-        	this.outputModsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        	this.inputFormatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+        	this.outputFormatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.moreReleasesPublicDomainGiftcomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
         	this.originalThreadDonationCodercomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -118,12 +118,14 @@ namespace DropLauncher
         	this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
         	this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
         	this.openToolStripMenuItem.Text = "&Open";
+        	this.openToolStripMenuItem.Visible = false;
         	this.openToolStripMenuItem.Click += new System.EventHandler(this.OnOpenToolStripMenuItemClick);
         	// 
         	// toolStripSeparator
         	// 
         	this.toolStripSeparator.Name = "toolStripSeparator";
         	this.toolStripSeparator.Size = new System.Drawing.Size(149, 6);
+        	this.toolStripSeparator.Visible = false;
         	// 
         	// saveToolStripMenuItem
         	// 
@@ -133,6 +135,7 @@ namespace DropLauncher
         	this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
         	this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
         	this.saveToolStripMenuItem.Text = "&Save";
+        	this.saveToolStripMenuItem.Visible = false;
         	this.saveToolStripMenuItem.Click += new System.EventHandler(this.OnSaveToolStripMenuItemClick);
         	// 
         	// toolStripSeparator3
@@ -152,8 +155,8 @@ namespace DropLauncher
         	this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
         	        	        	this.alwaysOnTopToolStripMenuItem,
         	        	        	this.rememberLocationToolStripMenuItem,
-        	        	        	this.regedToolStripMenuItem,
-        	        	        	this.outputModsToolStripMenuItem});
+        	        	        	this.inputFormatToolStripMenuItem,
+        	        	        	this.outputFormatToolStripMenuItem});
         	this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
         	this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
         	this.settingsToolStripMenuItem.Text = "&Settings";
@@ -174,21 +177,24 @@ namespace DropLauncher
         	this.rememberLocationToolStripMenuItem.Name = "rememberLocationToolStripMenuItem";
         	this.rememberLocationToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
         	this.rememberLocationToolStripMenuItem.Text = "&Remember location";
+        	this.rememberLocationToolStripMenuItem.Visible = false;
         	this.rememberLocationToolStripMenuItem.Click += new System.EventHandler(this.OnRememberLocationToolStripMenuItemClick);
         	// 
-        	// regedToolStripMenuItem
+        	// inputFormatToolStripMenuItem
         	// 
-        	this.regedToolStripMenuItem.Name = "regedToolStripMenuItem";
-        	this.regedToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-        	this.regedToolStripMenuItem.Text = "&Input format";
-        	this.regedToolStripMenuItem.Click += new System.EventHandler(this.OnRegedToolStripMenuItemClick);
+        	this.inputFormatToolStripMenuItem.Name = "inputFormatToolStripMenuItem";
+        	this.inputFormatToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+        	this.inputFormatToolStripMenuItem.Text = "&Input format";
+        	this.inputFormatToolStripMenuItem.Visible = false;
+        	this.inputFormatToolStripMenuItem.Click += new System.EventHandler(this.InputFormatToolStripMenuItemClick);
         	// 
-        	// outputModsToolStripMenuItem
+        	// outputFormatToolStripMenuItem
         	// 
-        	this.outputModsToolStripMenuItem.Name = "outputModsToolStripMenuItem";
-        	this.outputModsToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-        	this.outputModsToolStripMenuItem.Text = "&Output format";
-        	this.outputModsToolStripMenuItem.Click += new System.EventHandler(this.OnOutputModsToolStripMenuItemClick);
+        	this.outputFormatToolStripMenuItem.Name = "outputFormatToolStripMenuItem";
+        	this.outputFormatToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+        	this.outputFormatToolStripMenuItem.Text = "&Output format";
+        	this.outputFormatToolStripMenuItem.Visible = false;
+        	this.outputFormatToolStripMenuItem.Click += new System.EventHandler(this.OutputFormatToolStripMenuItemClick);
         	// 
         	// helpToolStripMenuItem
         	// 
@@ -286,6 +292,7 @@ namespace DropLauncher
         	this.Name = "MainForm";
         	this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
         	this.Text = "Drop Launcher";
+        	this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnMainFormFormClosing);
         	this.DragDrop += new System.Windows.Forms.DragEventHandler(this.OnMainFormDragDrop);
         	this.DragEnter += new System.Windows.Forms.DragEventHandler(this.OnMainFormDragEnter);
         	this.mainMenuStrip.ResumeLayout(false);
@@ -303,8 +310,8 @@ namespace DropLauncher
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem outputModsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem regedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem outputFormatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inputFormatToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel countToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel mainToolStripStatusLabel;
         private System.Windows.Forms.StatusStrip mainStatusStrip;
