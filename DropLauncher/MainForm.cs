@@ -28,6 +28,11 @@ namespace DropLauncher
         private Icon associatedIcon = null;
 
         /// <summary>
+        /// The launch count.
+        /// </summary>
+        private int launchCount = 0;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="T:DropLauncher.MainForm"/> class.
         /// </summary>
         public MainForm()
@@ -54,7 +59,11 @@ namespace DropLauncher
         /// <param name="e">Event arguments.</param>
         private void OnNewToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Reset launch count
+            this.launchCount = 0;
+
+            // Update label
+            this.countToolStripStatusLabel.Text = this.launchCount.ToString();
         }
 
         /// <summary>
@@ -262,6 +271,12 @@ namespace DropLauncher
             // Iterate links
             foreach (string link in linkList)
             {
+                // Raise lanuch count
+                this.launchCount++;
+
+                // Update label
+                this.countToolStripStatusLabel.Text = this.launchCount.ToString();
+
                 // Open replaced/prpocessed link
                 Process.Start(link);
             }
