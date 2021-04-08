@@ -351,7 +351,7 @@ namespace DropLauncher
 
         /// <summary>
         /// Handles the about tool strip menu item click event.
-        /// </summary>
+        /// </summary
         /// <param name="sender">Sender object.</param>
         /// <param name="e">Event arguments.</param>
         private void OnAboutToolStripMenuItemClick(object sender, EventArgs e)

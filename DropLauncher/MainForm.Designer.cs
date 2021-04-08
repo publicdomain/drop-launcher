@@ -258,7 +258,7 @@ namespace DropLauncher
             // 
             this.mainToolStripStatusLabel.Name = "mainToolStripStatusLabel";
             this.mainToolStripStatusLabel.Size = new System.Drawing.Size(85, 17);
-            this.mainToolStripStatusLabel.Text = "Links dropped:";
+            this.mainToolStripStatusLabel.Text = "Launched:";
             // 
             // countToolStripStatusLabel
             // 
