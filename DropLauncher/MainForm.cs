@@ -14,6 +14,7 @@ namespace DropLauncher
     using System.Reflection;
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
+    using System.Xml.Serialization;
     using PublicDomain;
 
     /// <summary>
@@ -36,6 +37,11 @@ namespace DropLauncher
         /// The settings data.
         /// </summary>
         private SettingsData settingsData = null;
+
+        /// <summary>
+        /// The settings data path.
+        /// </summary>
+        private string settingsDataPath = $"{Application.ProductName}-SettingsData.txt";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:DropLauncher.MainForm"/> class.
@@ -355,7 +361,13 @@ namespace DropLauncher
         /// <param name="e">Event arguments.</param>
         private void OnMainFormFormClosing(object sender, FormClosingEventArgs e)
         {
-            // TODO Add code
+            // Set settings data
+            this.settingsData.AlwaysOnTop = this.alwaysOnTopToolStripMenuItem.Checked;
+            this.settingsData.RememberLocation = this.rememberLocationToolStripMenuItem.Checked;
+            this.settingsData.Location = this.Location;
+
+            // Save settings data to disk
+            this.SaveSettingsFile(this.settingsDataPath, this.settingsData);
         }
 
         /// <summary>
@@ -428,6 +440,50 @@ namespace DropLauncher
         private void OnLaunchRegexToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code
+        }
+
+        /// <summary>
+        /// Loads the settings file.
+        /// </summary>
+        /// <returns>The settings file.</returns>
+        /// <param name="settingsFilePath">Settings file path.</param>
+        private SettingsData LoadSettingsFile(string settingsFilePath)
+        {
+            // Use file stream
+            using (FileStream fileStream = File.OpenRead(settingsFilePath))
+            {
+                // Set xml serialzer
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(SettingsData));
+
+                // Return populated settings data
+                return xmlSerializer.Deserialize(fileStream) as SettingsData;
+            }
+        }
+
+        /// <summary>
+        /// Saves the settings file.
+        /// </summary>
+        /// <param name="settingsFilePath">Settings file path.</param>
+        /// <param name="settingsDataParam">Settings data parameter.</param>
+        private void SaveSettingsFile(string settingsFilePath, SettingsData settingsDataParam)
+        {
+            try
+            {
+                // Use stream writer
+                using (StreamWriter streamWriter = new StreamWriter(settingsFilePath, false))
+                {
+                    // Set xml serialzer
+                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(SettingsData));
+
+                    // Serialize settings data
+                    xmlSerializer.Serialize(streamWriter, settingsDataParam);
+                }
+            }
+            catch (Exception exception)
+            {
+                // Advise user
+                MessageBox.Show($"Error saving settings file.{Environment.NewLine}{Environment.NewLine}Message:{Environment.NewLine}{exception.Message}", "File error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
