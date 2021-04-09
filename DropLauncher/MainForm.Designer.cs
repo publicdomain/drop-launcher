@@ -288,7 +288,7 @@ namespace DropLauncher
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Drop Launcher";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnMainFormFormClosing);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.OnMainFormDragDrop);

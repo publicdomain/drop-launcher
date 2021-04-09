@@ -65,6 +65,9 @@ namespace DropLauncher
             // Check for settings file
             if (!File.Exists(this.settingsDataPath))
             {
+                // Center form on screen
+                this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+
                 // Create new settings file
                 this.SaveSettingsFile(this.settingsDataPath, new SettingsData());
             }
