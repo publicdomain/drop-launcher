@@ -29,7 +29,7 @@ Day #99, Week #14 @ April 09, 2021
 * Jesse Reichler (A.K.A. Mouser from DonationCoder.com)
 * Will *you* be the next supporter? :)
 
-You may support the project by expressing your excitement in the form of a Donation via Paypal @ [www.paypal.me/victorvls](https://www.paypal.me/victorvls) or by becoming a Patron @ [www.patreon.com/publicdomain](https://www.patreon.com/publicdomain).
+You may support this project by expressing your excitement in the form of a Donation via Paypal @ [www.paypal.me/victorvls](https://www.paypal.me/victorvls) or by becoming a Patron @ [www.patreon.com/publicdomain](https://www.patreon.com/publicdomain).
 
 Thanks & keep on rocking!
 
