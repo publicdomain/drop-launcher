@@ -28,7 +28,7 @@ namespace PublicDomain
         /// Gets or sets a value indicating whether this <see cref="T:Urlister.UrlisterSettings"/> always on top.
         /// </summary>
         /// <value><c>true</c> if always on top; otherwise, <c>false</c>.</value>
-        public bool AlwaysOnTop { get; set; } = false;
+        public bool AlwaysOnTop { get; set; } = true;
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="T:PublicDomain.SettingsData"/> remember location.
