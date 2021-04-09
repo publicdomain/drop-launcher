@@ -15,6 +15,7 @@ namespace DropLauncher
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
     using System.Xml.Serialization;
+    using Microsoft.VisualBasic;
     using PublicDomain;
 
     /// <summary>
@@ -436,7 +437,8 @@ namespace DropLauncher
         /// <param name="e">Event arguments.</param>
         private void OnLinkRegexToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Modify input regex
+            this.settingsData.LinkRegex = Interaction.InputBox("Edit link regular expression:", "Link regex", this.settingsData.LinkRegex);
         }
 
         /// <summary>
