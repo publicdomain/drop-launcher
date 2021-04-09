@@ -61,8 +61,15 @@ namespace DropLauncher
 
             /* Settings data */
 
-            // Set settings data
-            this.settingsData = new SettingsData();
+            // Check for settings file
+            if (!File.Exists(this.settingsDataPath))
+            {
+                // Create new settings file
+                this.SaveSettingsFile(this.settingsDataPath, new SettingsData());
+            }
+
+            // Load settings from disk
+            this.settingsData = this.LoadSettingsFile(this.settingsDataPath);
 
             // Topmost
             this.alwaysOnTopToolStripMenuItem.Checked = this.settingsData.AlwaysOnTop;
