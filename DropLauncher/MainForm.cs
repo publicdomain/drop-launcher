@@ -62,11 +62,14 @@ namespace DropLauncher
 
             /* Settings data */
 
+            // Center variable
+            bool center = false;
+
             // Check for settings file
             if (!File.Exists(this.settingsDataPath))
             {
-                // Center form on screen
-                this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+                // Set center flag
+                center = true;
 
                 // Create new settings file
                 this.SaveSettingsFile(this.settingsDataPath, new SettingsData());
@@ -87,6 +90,18 @@ namespace DropLauncher
             {
                 // Set location
                 this.Location = this.settingsData.Location;
+            }
+            else
+            {
+                // Set center flag
+                center = true;
+            }
+
+            // Check if must center
+            if (center)
+            {
+                // Center form on screen
+                this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             }
         }
 
