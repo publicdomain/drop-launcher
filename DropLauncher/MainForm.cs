@@ -455,8 +455,15 @@ namespace DropLauncher
         /// <param name="e">Event arguments.</param>
         private void OnLaunchRegexToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // Modify launch regex
-            this.settingsData.LaunchRegex = Interaction.InputBox("Edit launch regex:", "Launch", this.settingsData.LaunchRegex);
+            // Set new launch regex
+            var launchRegex = Interaction.InputBox("Edit launch regex:", "Link", this.settingsData.LaunchRegex);
+
+            // Check for length
+            if (launchRegex.Length > 0)
+            {
+                // Modify input regex
+                this.settingsData.LaunchRegex = launchRegex;
+            }
         }
 
         /// <summary>
