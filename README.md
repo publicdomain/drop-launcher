@@ -14,7 +14,7 @@ Targets Microsoft .NET framework v4.5 (Native to Windows 8+)
 Notes:
 
 v0.1.0:
-- Processes dropped links from Google Chrome, Firefox and some more browsers (feel free to try!).
+- Processes dropped links from Google Chrome, Firefox and likely more browsers (feel free to try!).
 - Edits both link & launch regular expressions.
 - Always on top.
 - Remembers location on screen.
