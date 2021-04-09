@@ -33,6 +33,11 @@ namespace DropLauncher
         private int launchCount = 0;
 
         /// <summary>
+        /// The settings data.
+        /// </summary>
+        private SettingsData settingsData = null;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="T:DropLauncher.MainForm"/> class.
         /// </summary>
         public MainForm()
@@ -48,8 +53,18 @@ namespace DropLauncher
             // Set public domain weekly tool strip menu item image
             this.moreReleasesPublicDomainGiftcomToolStripMenuItem.Image = this.associatedIcon.ToBitmap();
 
-            // TODO Set topmost by saved settings
-            this.TopMost = true;
+            /* Settings data */
+
+            // Set settings data
+            this.settingsData = new SettingsData();
+
+            // Topmost
+            this.alwaysOnTopToolStripMenuItem.Checked = this.settingsData.AlwaysOnTop;
+            this.TopMost = this.settingsData.AlwaysOnTop;
+
+            // Location
+            this.rememberLocationToolStripMenuItem.Checked = this.settingsData.RememberLocation;
+            this.Location = this.settingsData.Location;
         }
 
         /// <summary>
@@ -89,36 +104,6 @@ namespace DropLauncher
 
             // Set topmost 
             this.TopMost = this.alwaysOnTopToolStripMenuItem.Checked;
-        }
-
-        /// <summary>
-        /// Inputs the format tool strip menu item click.
-        /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
-        private void InputFormatToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            // TODO Add code
-        }
-
-        /// <summary>
-        /// Outputs the format tool strip menu item click.
-        /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
-        private void OutputFormatToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            // TODO Add code
-        }
-
-        /// <summary>
-        /// Handles the output mods tool strip menu item click event.
-        /// </summary>
-        /// <param name="sender">Sender object.</param>
-        /// <param name="e">Event arguments.</param>
-        private void OnOutputModsToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            // TODO Add codep
         }
 
         /// <summary>
@@ -191,12 +176,21 @@ namespace DropLauncher
         /// <param name="link">Input link.</param>
         private string ProcessLink(string link)
         {
-            // TODO Check for a javascript link [Make it generic for v0.1.0+]
-            if (link.StartsWith("javascript:SetCfpId(", StringComparison.InvariantCultureIgnoreCase))
+            // Set regex
+            var regex = new Regex(this.settingsData.LinkRegex);
+
+            // Set match
+            var match = regex.Match(link);
+
+            // Test match result
+            if (!match.Success)
             {
-                // Generate link according to magician62/John's requirements
-                link = $"https://www.ancestry.co.uk/family-tree/tree/12345678/family/familyview?cfpid={new Regex(@"\d+").Match(link).Value}";
+                // Halt flow 
+                return string.Empty;
             }
+
+            // Set link
+            link = match.Result(this.settingsData.LaunchRegex);
 
             // Return validated link
             if (this.ValidateUri(link))
@@ -366,7 +360,7 @@ namespace DropLauncher
 
         /// <summary>
         /// Handles the about tool strip menu item click event.
-        /// </summary
+        /// </summary>
         /// <param name="sender">Sender object.</param>
         /// <param name="e">Event arguments.</param>
         private void OnAboutToolStripMenuItemClick(object sender, EventArgs e)
@@ -414,6 +408,26 @@ namespace DropLauncher
 
             // Show about form
             aboutForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Handles the link regex tool strip menu item click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnLinkRegexToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            // TODO Add code
+        }
+
+        /// <summary>
+        /// Handles the launch regex tool strip menu item click event.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnLaunchRegexToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            // TODO Add code
         }
     }
 }

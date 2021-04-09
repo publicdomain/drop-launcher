@@ -49,8 +49,8 @@ namespace DropLauncher
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alwaysOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rememberLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inputFormatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.outputFormatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.linkRegexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.launchRegexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moreReleasesPublicDomainGiftcomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.originalThreadDonationCodercomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -155,8 +155,8 @@ namespace DropLauncher
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
                                     this.alwaysOnTopToolStripMenuItem,
                                     this.rememberLocationToolStripMenuItem,
-                                    this.inputFormatToolStripMenuItem,
-                                    this.outputFormatToolStripMenuItem});
+                                    this.linkRegexToolStripMenuItem,
+                                    this.launchRegexToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "&Settings";
@@ -177,24 +177,21 @@ namespace DropLauncher
             this.rememberLocationToolStripMenuItem.Name = "rememberLocationToolStripMenuItem";
             this.rememberLocationToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.rememberLocationToolStripMenuItem.Text = "&Remember location";
-            this.rememberLocationToolStripMenuItem.Visible = false;
             this.rememberLocationToolStripMenuItem.Click += new System.EventHandler(this.OnRememberLocationToolStripMenuItemClick);
             // 
-            // inputFormatToolStripMenuItem
+            // linkRegexToolStripMenuItem
             // 
-            this.inputFormatToolStripMenuItem.Name = "inputFormatToolStripMenuItem";
-            this.inputFormatToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.inputFormatToolStripMenuItem.Text = "&Input format";
-            this.inputFormatToolStripMenuItem.Visible = false;
-            this.inputFormatToolStripMenuItem.Click += new System.EventHandler(this.InputFormatToolStripMenuItemClick);
+            this.linkRegexToolStripMenuItem.Name = "linkRegexToolStripMenuItem";
+            this.linkRegexToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.linkRegexToolStripMenuItem.Text = "L&ink regex";
+            this.linkRegexToolStripMenuItem.Click += new System.EventHandler(this.OnLinkRegexToolStripMenuItemClick);
             // 
-            // outputFormatToolStripMenuItem
+            // launchRegexToolStripMenuItem
             // 
-            this.outputFormatToolStripMenuItem.Name = "outputFormatToolStripMenuItem";
-            this.outputFormatToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.outputFormatToolStripMenuItem.Text = "&Output format";
-            this.outputFormatToolStripMenuItem.Visible = false;
-            this.outputFormatToolStripMenuItem.Click += new System.EventHandler(this.OutputFormatToolStripMenuItemClick);
+            this.launchRegexToolStripMenuItem.Name = "launchRegexToolStripMenuItem";
+            this.launchRegexToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.launchRegexToolStripMenuItem.Text = "L&aunch regex";
+            this.launchRegexToolStripMenuItem.Click += new System.EventHandler(this.OnLaunchRegexToolStripMenuItemClick);
             // 
             // helpToolStripMenuItem
             // 
@@ -257,7 +254,7 @@ namespace DropLauncher
             // mainToolStripStatusLabel
             // 
             this.mainToolStripStatusLabel.Name = "mainToolStripStatusLabel";
-            this.mainToolStripStatusLabel.Size = new System.Drawing.Size(85, 17);
+            this.mainToolStripStatusLabel.Size = new System.Drawing.Size(62, 17);
             this.mainToolStripStatusLabel.Text = "Launched:";
             // 
             // countToolStripStatusLabel
@@ -304,6 +301,8 @@ namespace DropLauncher
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+        private System.Windows.Forms.ToolStripMenuItem launchRegexToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem linkRegexToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ToolStripMenuItem rememberLocationToolStripMenuItem;
@@ -311,8 +310,6 @@ namespace DropLauncher
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem outputFormatToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem inputFormatToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel countToolStripStatusLabel;
         private System.Windows.Forms.ToolStripStatusLabel mainToolStripStatusLabel;
         private System.Windows.Forms.StatusStrip mainStatusStrip;
