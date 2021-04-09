@@ -407,7 +407,7 @@ namespace DropLauncher
             var aboutForm = new AboutForm(
                 $"About {programTitle}",
                 $"{programTitle} {version.Major}.{version.Minor}.{version.Build}",
-                $"Made for: magician62{Environment.NewLine}DonationCoder.com{Environment.NewLine}Day #97, Week #14 @ April 07, 2021",
+                $"Made for: magician62{Environment.NewLine}DonationCoder.com{Environment.NewLine}Day #99, Week #14 @ April 09, 2021",
                 licenseText,
                 this.Icon.ToBitmap())
             {
