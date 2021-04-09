@@ -79,9 +79,15 @@ namespace DropLauncher
             this.alwaysOnTopToolStripMenuItem.Checked = this.settingsData.AlwaysOnTop;
             this.TopMost = this.settingsData.AlwaysOnTop;
 
-            // Location
+            // Set remember location check box
             this.rememberLocationToolStripMenuItem.Checked = this.settingsData.RememberLocation;
-            this.Location = this.settingsData.Location;
+
+            // Check for remember location action
+            if (this.settingsData.RememberLocation)
+            {
+                // Set location
+                this.Location = this.settingsData.Location;
+            }
         }
 
         /// <summary>
@@ -177,13 +183,14 @@ namespace DropLauncher
         }
 
         /// <summary>
-        /// Remembers the location tool strip menu item click event.
+        /// Handles the Remember location tool strip menu item click event.
         /// </summary>
         /// <param name="sender">Sender object.</param>
         /// <param name="e">Event arguments.</param>
         private void OnRememberLocationToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Toggle checkbox
+            this.rememberLocationToolStripMenuItem.Checked = !this.rememberLocationToolStripMenuItem.Checked;
         }
 
         /// <summary>
