@@ -437,8 +437,15 @@ namespace DropLauncher
         /// <param name="e">Event arguments.</param>
         private void OnLinkRegexToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // Modify input regex
-            this.settingsData.LinkRegex = Interaction.InputBox("Edit link regular expression:", "Link regex", this.settingsData.LinkRegex);
+            // Set new link regex
+            var linkRegex = Interaction.InputBox("Edit link regex:", "Link", this.settingsData.LinkRegex);
+
+            // Check for length
+            if (linkRegex.Length > 0)
+            {
+                // Modify input regex
+                this.settingsData.LinkRegex = linkRegex;
+            }
         }
 
         /// <summary>
@@ -448,7 +455,8 @@ namespace DropLauncher
         /// <param name="e">Event arguments.</param>
         private void OnLaunchRegexToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Modify launch regex
+            this.settingsData.LaunchRegex = Interaction.InputBox("Edit launch regex:", "Launch", this.settingsData.LaunchRegex);
         }
 
         /// <summary>
