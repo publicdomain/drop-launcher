@@ -16,6 +16,8 @@ Notes:
 v0.1.1:
 - Fix dropped link processing.
 
+Day #101, Week #14 @ April 11, 2021
+
 v0.1.0:
 - Processes dropped links from Google Chrome, Firefox and likely more browsers (feel free to try!).
 - Edits both link & launch regular expressions.
