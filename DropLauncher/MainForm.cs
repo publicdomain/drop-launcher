@@ -281,7 +281,7 @@ namespace DropLauncher
                 // Declare link
                 string link;
 
-                // Check for .url/.website line
+                // TODO Check for .url file line [Can be processed using INI file library / class]
                 if (line.StartsWith("URL=", StringComparison.InvariantCultureIgnoreCase))
                 {
                     // Extract link
@@ -293,16 +293,20 @@ namespace DropLauncher
                     link = line;
                 }
 
-                // Add valid links
-                if (!string.IsNullOrEmpty(this.ProcessLink(link)))
+                /* Add valid mached links */
+
+                // Process possible valid link to use
+                string possibleValidLink = this.ProcessLink(link);
+
+                if (!string.IsNullOrEmpty(possibleValidLink))
                 {
                     // Add to link list
-                    linkList.Add(link);
+                    linkList.Add(possibleValidLink);
                 }
             }
 
             // Iterate links
-            foreach (string link in linkList)
+            foreach (string validLink in linkList)
             {
                 // Raise lanuch count
                 this.launchCount++;
@@ -311,7 +315,7 @@ namespace DropLauncher
                 this.countToolStripStatusLabel.Text = this.launchCount.ToString();
 
                 // Open replaced/prpocessed link
-                Process.Start(link);
+                Process.Start(validLink);
             }
         }
 
